@@ -18,11 +18,12 @@ type GarmentType = {
 	manufactureCountry: string
 	manufactureDate: string
 	weight: string
-	co2e: string
-	journey: {
-		tier1: string
-		tier2: string
-		tier3: string
-	}
+	carbonEmissions: string
+	journey: JourneyItem[]
 	mainMaterial: MaterialType
+}
+
+type JourneyItem = {
+	name: string
+	description: string
 }
