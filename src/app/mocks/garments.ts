@@ -4,7 +4,7 @@ export const garments: GarmentsType = {}
 
 type GarmentsType = Record<string, GarmentType>
 
-type GarmentType = {
+export type GarmentType = {
 	id: string
 	name: string
 	sizeSystem: string
