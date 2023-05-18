@@ -6,9 +6,9 @@ export default function Home() {
   return (
     <main className={styles.main}>
       <h1 className={styles.helo}>Helloooooooooooo</h1>
-      {garments.map((garment) => (
-        <Link href={`/${garment.id}`} key={garment.id}>
-          { garment.id }
+      {Object.keys(garments).map(id => (
+        <Link href={`/${id}`} key={id}>
+          { id }
         </Link>
       ))}
     </main>

@@ -1,37 +1,24 @@
-import { garments, GarmentType } from "@/app/mocks/garments"
+import { garments } from "@/app/mocks/garments"
 import Link from "next/link"
+import { useRouter } from "next/router"
 
-export const getStaticPaths = () => {
-  const garmentPaths = garments.map(garment => {
-    return {
-      params: {id: garment.id}
-    }
-  })
-  return {
-    paths: garmentPaths,
-    fallback: false
+const GarmentPage = () => {
+  const router = useRouter()
+  const id = router.query.id as string
+  const garment = id && garments[id]
+  if (!garment) {
+    return null
   }
-}
-
-export const getStaticProps = (context: { params: { id: string } }) => {
-  const id = context.params.id
-  const item = garments.find(garment => garment.id === id)
-
-  return {
-    props: { garment: item }
-  }
-}
-
-const GarmentPage = ({ garment }: {garment: GarmentType}) => {
+  console.log("helo", router.query.id)
   return (
     <div>
       <h1>GARMENT PAGE</h1>
       <h2>{ garment.id }</h2>
-      {garments
-        .filter(g => g.id !== garment.id)
-        .map(g => (
-        <Link href={`/${g.id}`} key={g.id}>
-          Go to the other one
+      {Object.keys(garments)
+        .filter(id => id !== garment.id)
+        .map(id => (
+        <Link href={`/${id}`} key={id}>
+          Go to {id}
         </Link>
         ))}
         <Link href={`/`}>
