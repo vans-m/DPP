@@ -182,7 +182,7 @@ export const garments: GarmentsType = {
 
 type GarmentsType = Record<string, GarmentType>
 
-type GarmentType = {
+export type GarmentType = {
 	id: string
 	sizeSystem: string
 	size: number | string
