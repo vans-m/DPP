@@ -1,7 +1,7 @@
-import './globals.scss'
-import { Inter } from 'next/font/google'
+import './styles/globals.scss'
+import { Work_Sans } from 'next/font/google'
 
-const inter = Inter({ subsets: ['latin'] })
+const sans = Work_Sans({ subsets: ['latin']  })
 
 export const metadata = {
   title: 'DPP',
@@ -16,7 +16,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={inter.className}
+        id="hellooooo"
+        className={sans.className}
         suppressHydrationWarning={true}
       >{children}</body>
     </html>

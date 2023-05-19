@@ -1,15 +1,13 @@
-import { garments } from "@/app/mocks/garments"
+import { garments } from "../mocks/garments"
 import Link from "next/link"
-import { useRouter } from "next/router"
 
-const GarmentPage = () => {
-  const router = useRouter()
-  const id = router.query.id as string
-  const garment = id && garments[id]
+const GarmentPage = ({ params }: { params: { id: string } }) => {
+  
+  const id = params.id
+  const garment = garments[id]
   if (!garment) {
     return null
   }
-  console.log("helo", router.query.id)
   return (
     <div>
       <h1>GARMENT PAGE</h1>
