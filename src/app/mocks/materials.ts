@@ -4,92 +4,92 @@ export const materials: MaterialsType = {
 		name: 'Wool',
 		details: [
 			{
-				image: 'pic1',
+				image: '/wool-1.jpeg',
 				description: 'NO WASH'
 			},
 			{
-				image: 'pic2',
+				image: '/wool-2.jpeg',
 				description: 'NO DISCOMFORT'
 			},
 			{
-				image: 'pic3',
+				image: '/wool-3.jpeg',
 				description: 'NO ITCH'
 			},
 			{
-				image: 'pic4',
+				image: '/wool-4.jpg',
 				description: 'NO GREENWASH'
 			}
 		],
-		logo: 'pic-logo'
+		logo: '/wool-logo.webp'
 	},
 	tencel: {
 		id: '002',
 		name: 'Tencel™',
 		details: [
 			{
-				image: 'pic1',
+				image: '/tencel-1.jpg',
 				description: 'BREATHABLE'
 			},
 			{
-				image: 'pic2',
+				image: '/tencel-2.png',
 				description: 'GENTLE ON SKIN'
 			},
 			{
-				image: 'pic3',
+				image: '/tencel-3.jpg',
 				description: 'NATURAL COMFORT'
 			},
 			{
-				image: 'pic4',
+				image: '/tencel-4.jpg',
 				description: 'BIODEGRADABLE'
 			}
 		],
-		logo: 'pic-logo'
+		logo: '/tencel-logo.png'
 	},
 	mirum: {
 		id: '003',
 		name: 'Mirum®',
 		details: [
 			{
-				image: 'pic1',
+				image: '/mirum-1.jpeg',
 				description: 'ZERO PLASTICS'
 			},
 			{
-				image: 'pic2',
+				image: '/mirum-2.png',
 				description: 'ANIMAL FREE'
 			},
 			{
-				image: 'pic3',
+				image: '/mirum-3.jpeg',
 				description: 'HIGHLY DURABLE'
 			},
 			{
-				image: 'pic4',
+				image: '/mirum-4.jpeg',
 				description: 'BIONEUTRAL'
 			}
 		],
-		logo: 'pic-logo'
+		logo: '/mirum-logo.jpg'
 	},
 	econyl: {
 		id: '004',
 		name: 'Econyl®',
 		details: [
 			{
-				image: 'pic1',
+				image: '/econyl-1.jpeg',
 				description: 'DAMAGE-RESISTANT'
 			},
 			{
-				image: 'pic2',
+				image: '/econyl-2.png',
 				description: 'CIRCULAR PRODUCE'
 			},
 			{
-				image: 'pic3',
+				image: '/econyl-3.jpeg',
 				description: 'FLEXIBLE'
 			},
 			{
-				image: 'pic4',
+				image: '/econyl-4.jpeg',
 				description: 'LIVE & REPEAT'
 			}
 		],
-		logo: 'pic-logo'
+		logo: '/econyl-logo.jpg'
 	}
 }
 
