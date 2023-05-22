@@ -1,3 +1,4 @@
+import Masonry from "../components/Masonry/Masonry"
 import { garments } from "../mocks/garments"
 import styles from './page.module.scss'
 import Header from "../components/Header/Header"
