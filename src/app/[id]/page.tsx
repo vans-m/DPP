@@ -1,3 +1,4 @@
+import Masonry from "../components/Masonry/Masonry"
 import { garments } from "../mocks/garments"
 import Link from "next/link"
 
@@ -21,7 +22,7 @@ const GarmentPage = ({ params }: { params: { id: string } }) => {
         ))}
         <Link href={`/`}>
           Go to the homepage
-        </Link>
+      </Link>
     </div>
   )
 }
