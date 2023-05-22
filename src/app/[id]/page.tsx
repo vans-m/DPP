@@ -1,5 +1,10 @@
 import { garments } from "../mocks/garments"
-import Link from "next/link"
+import styles from './page.module.scss'
+import Header from "../components/Header/Header"
+import Footer from "../components/Footer/Footer"
+import Garment from "../components/Garment/Garment"
+
+
 
 const GarmentPage = ({ params }: { params: { id: string } }) => {
   
@@ -9,19 +14,18 @@ const GarmentPage = ({ params }: { params: { id: string } }) => {
     return null
   }
   return (
-    <div>
-      <h1>GARMENT PAGE</h1>
-      <h2>{ garment.id }</h2>
-      {Object.keys(garments)
+    <div className={styles.mainWrapper}>
+      
+      <Header />
+      <Garment garment={garment} />
+      <Footer />
+      {/* {Object.keys(garments)
         .filter(id => id !== garment.id)
         .map(id => (
         <Link href={`/${id}`} key={id}>
           Go to {id}
         </Link>
-        ))}
-        <Link href={`/`}>
-          Go to the homepage
-        </Link>
+        ))} */}
     </div>
   )
 }
