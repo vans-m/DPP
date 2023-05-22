@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import styles from './Details.module.scss'
+import Wrapper from '../Wrapper/Wrapper'
 
 type Details = {
   sizeSystem: string
@@ -13,19 +14,21 @@ type Details = {
 
 const Details = ({ pictures, sizeSystem, size, season, releaseDate, colourName, price}: Details) => {
   return (
-    <div className={styles.wrapper}>
-      <div className={styles.images}>
-        {pictures.map(pic => <Image key={pic} src={pic} width={180} height={180} alt='' />)}
+    <Wrapper>
+      <div className={styles.wrapper}>
+        <div className={styles.images}>
+          {pictures.map(pic => <Image key={pic} src={pic} width={180} height={180} alt='' />)}
+        </div>
+        <div className={styles.details}>
+          <span>Size System: {sizeSystem}</span>
+          <span>Size: {size}</span>
+          <span>Season: {season}</span>
+          <span>Release Date: {releaseDate}</span>
+          <span>Colour Name: {colourName}</span>
+          <span>Price: {price}</span>
+        </div>
       </div>
-      <div className={styles.details}>
-        <span>Size System: {sizeSystem}</span>
-        <span>Size: {size}</span>
-        <span>Season: {season}</span>
-        <span>Release Date: {releaseDate}</span>
-        <span>Colour Name: {colourName}</span>
-        <span>Price: {price}</span>
-      </div>
-    </div>
+    </Wrapper>
   )
 }
 
