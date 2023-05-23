@@ -1,4 +1,5 @@
 import Details from '../Details/Details'
+import Material from '../Material/Material'
 import Wrapper from '../Wrapper/Wrapper'
 import styles from './Garment.module.scss'
 import { GarmentType } from '@/app/mocks/garments'
@@ -16,6 +17,10 @@ const Garment = ({garment}: {garment: GarmentType}) => {
           releaseDate={garment.releaseDate}
           colourName={garment.colourName}
           price={garment.price}
+        />
+        <Material
+          material={garment.mainMaterial}
+          description={garment.description}
         />
       </div>
     </Wrapper>

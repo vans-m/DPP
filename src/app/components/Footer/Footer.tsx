@@ -6,7 +6,10 @@ const Footer = () => {
   return (
     <Wrapper>
       <div className={styles.wrapper}>
-        <Image className={styles.image} src={'/s&s-logo-transparent.png'} width={50} height={40} alt='' />  
+        <div className={styles.shadow}></div>
+        <div className={styles.main}>
+          <Image className={styles.image} src={'/s&s-logo-transparent.png'} width={50} height={40} alt='' />  
+        </div>
       </div>
     </Wrapper>
   )
