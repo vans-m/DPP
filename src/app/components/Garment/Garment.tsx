@@ -1,12 +1,12 @@
 import Details from '../Details/Details'
-import Wrapper from '../Wrapper/Wrapper'
+import Textile from '../Textile/Textile'
 import styles from './Garment.module.scss'
 import { GarmentType } from '@/app/mocks/garments'
 
 
 const Garment = ({garment}: {garment: GarmentType}) => {
   return (
-    <Wrapper>
+
       <div className={styles.wrapper}>
         <Details
           pictures={garment.pictures}
@@ -17,8 +17,18 @@ const Garment = ({garment}: {garment: GarmentType}) => {
           colourName={garment.colourName}
           price={garment.price}
         />
+        <Textile
+          composition={garment.composition}
+          manufactureCountry={garment.manufactureCountry}
+          manufactureDate={garment.manufactureDate}
+          sizeSystem={garment.sizeSystem}
+          size={garment.size}
+          weight={garment.weight}
+          carbonEmissions={garment.carbonEmissions}
+          background={garment.pictures[0]}
+        />
       </div>
-    </Wrapper>
+
   )
 }
 
