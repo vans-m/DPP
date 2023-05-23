@@ -1,4 +1,5 @@
 import Details from '../Details/Details'
+import Map from '../Map/Map'
 import Wrapper from '../Wrapper/Wrapper'
 import styles from './Garment.module.scss'
 import { GarmentType } from '@/app/mocks/garments'
@@ -18,6 +19,7 @@ const Garment = ({garment}: {garment: GarmentType}) => {
           price={garment.price}
         />
       </div>
+      <Map journey={garment.journey} />
     </Wrapper>
   )
 }
