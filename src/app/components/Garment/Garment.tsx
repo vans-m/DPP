@@ -1,4 +1,5 @@
 import DigitalID from '../DigitalID/DigitalID'
+import Map from '../Map/Map'
 import Textile from '../Textile/Textile'
 import styles from './Garment.module.scss'
 import { GarmentType } from '@/app/mocks/garments'
@@ -27,9 +28,10 @@ const Garment = ({garment}: {garment: GarmentType}) => {
           weight={garment.weight}
           carbonEmissions={garment.carbonEmissions}
           background={garment.pictures[0]}
-        />
+      />
+      <Map journey={garment.journey} />
       </div>
-
+      
   )
 }
 

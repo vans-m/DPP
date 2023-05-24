@@ -1,0 +1,51 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 0 2rem;
+}
+
+.tiers {
+  display: flex;
+  flex-direction: column;
+  font-size: 1.2rem;
+  font-weight: 300;
+  gap: .7rem;
+}
+
+.map {
+  padding-top: 5rem;
+  display: flex;
+  flex-direction: column;
+  font-size: 1.4rem;
+  font-weight: 300;
+}
+
+.tierElement {
+  display: grid;
+  grid-template-columns: 2fr 4fr;
+  font-size: 2.5rem;
+  font-weight: 300;
+  gap: 1rem;
+}
+
+.tier {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  font-size: 1rem;
+  font-weight: 300;
+  justify-content: center;
+  gap: .2rem;
+}
+
+.info {
+  font-size: .7rem;
+  font-weight: 200;
+}
