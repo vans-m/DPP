@@ -7,5 +7,14 @@
   left: 0;
   right: 0;
   margin-bottom: auto;
+  z-index: 1;
 }
 
+.main {
+  background-image: linear-gradient(rgba(255, 255, 255, 1), rgba(255, 255, 255, .7));
+}
+
+.shadow {
+  height: 2rem;
+  background-image: linear-gradient(rgba(255, 255, 255, .7), rgba(255, 255, 255, 0));
+}

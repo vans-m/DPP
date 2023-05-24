@@ -13,6 +13,16 @@
   grid-template-columns: 5fr 1fr 5fr;
   align-items: center;
   text-align: center;
+  z-index: 1;
+}
+
+.main {
+  background-image: linear-gradient(rgba(255, 255, 255, .7), rgba(255, 255, 255, 1));
+}
+
+.shadow {
+  height: 2rem;
+  background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, .7));
   font-size: 1rem;
   font-weight: 200;
 }

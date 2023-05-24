@@ -95,7 +95,7 @@ export const materials: MaterialsType = {
 
 type MaterialsType = Record<string, MaterialType>
 
-type DetailsType = {
+export type DetailsType = {
 	image: string
 	description: string
 }
