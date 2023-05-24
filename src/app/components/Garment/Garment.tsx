@@ -1,12 +1,12 @@
 import DigitalID from '../DigitalID/DigitalID'
-import Wrapper from '../Wrapper/Wrapper'
+import Textile from '../Textile/Textile'
 import styles from './Garment.module.scss'
 import { GarmentType } from '@/app/mocks/garments'
 
 
 const Garment = ({garment}: {garment: GarmentType}) => {
   return (
-    <Wrapper>
+
       <div className={styles.wrapper}>
         <DigitalID
           pictures={garment.pictures}
@@ -18,8 +18,18 @@ const Garment = ({garment}: {garment: GarmentType}) => {
           price={garment.price}
           material={garment.mainMaterial}
         />
+        <Textile
+          composition={garment.composition}
+          manufactureCountry={garment.manufactureCountry}
+          manufactureDate={garment.manufactureDate}
+          sizeSystem={garment.sizeSystem}
+          size={garment.size}
+          weight={garment.weight}
+          carbonEmissions={garment.carbonEmissions}
+          background={garment.pictures[0]}
+        />
       </div>
-    </Wrapper>
+
   )
 }
 
