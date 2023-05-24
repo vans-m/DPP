@@ -6,9 +6,24 @@
   left: 0;
   right: 0;
   background-color: transparent;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 5fr 1fr 5fr;
+  align-items: center;
   text-align: center;
+  font-size: 1rem;
+  font-weight: 200;
 }
 
 .image {
-  margin: auto auto 1.5rem;
+  margin: auto auto 1rem;
+}
+
+.nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin: 0 0 1rem;
 }
