@@ -1,0 +1,61 @@
+.wrapper {
+  padding: 5rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 100%;
+}
+
+.title {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  font-weight: 300;
+}
+
+.top {
+  font-size: 1.5rem;
+  font-weight: 300;
+}
+
+.topPick {
+  display: flex;
+  flex-direction: row;
+  gap: .5rem;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  font-size: 1.2rem;
+  font-weight: 300;
+  gap: .2rem;
+}
+
+.logo {}
+
+.bottom {
+  padding-top: 2rem;
+  display: flex;
+  flex-direction: row;
+  font-size: 1.2rem;
+  font-weight: 300;
+  gap: 1rem;
+}
+
+.picSection {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
+
+.picItems {
+  display: flex;
+  flex-direction: row;
+  gap: .5rem;
+}
+
+.imgWrapper {
+  aspect-ratio: 2 / 3;
+  height: fit-content;
+}

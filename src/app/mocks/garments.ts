@@ -201,7 +201,7 @@ export type GarmentType = {
 	description: string[]
 }
 
-type JourneyItem = {
+export type JourneyItem = {
 	name: string
 	location: string
 	id: string
