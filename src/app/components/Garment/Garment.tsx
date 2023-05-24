@@ -2,6 +2,7 @@ import DigitalID from '../DigitalID/DigitalID'
 import Material from '../Material/Material'
 import Map from '../Map/Map'
 import Textile from '../Textile/Textile'
+import TopPicks from '../TopPicks/TopPicks'
 import styles from './Garment.module.scss'
 import { GarmentType } from '@/app/mocks/garments'
 
@@ -35,6 +36,7 @@ const Garment = ({garment}: {garment: GarmentType}) => {
           material={garment.mainMaterial}
           description={garment.description}
         />
+        <TopPicks id={garment.id} />
       </div>
       
   )

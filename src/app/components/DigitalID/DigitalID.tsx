@@ -1,5 +1,5 @@
 import styles from './DigitalID.module.scss'
-import Wrapper from '../Wrapper/Wrapper'
+
 import Masonry from '../Masonry/Masonry'
 import Image from 'next/image'
 import { MaterialType } from '@/app/mocks/materials'
@@ -17,7 +17,7 @@ type Details = {
 
 const Details = ({ pictures, sizeSystem, size, season, releaseDate, colourName, price, material}: Details) => {
   return (
-    <Wrapper>
+    
       <div className={styles.wrapper}>
         <Masonry images={pictures} />
         <div className={styles.details}>
@@ -34,7 +34,7 @@ const Details = ({ pictures, sizeSystem, size, season, releaseDate, colourName, 
           </div>
         </div>
       </div>
-    </Wrapper>
+    
   )
 }
 

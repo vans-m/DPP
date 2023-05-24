@@ -2,7 +2,10 @@
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  padding: 0 2rem;
+  min-height: 100vh;
+  padding-top: 10vh;
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 
 .tiers {
@@ -14,7 +17,6 @@
 }
 
 .map {
-  padding-top: 5rem;
   display: flex;
   flex-direction: column;
   font-size: 1.4rem;

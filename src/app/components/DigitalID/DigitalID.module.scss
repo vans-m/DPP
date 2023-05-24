@@ -1,7 +1,10 @@
 .wrapper {
   display: flex;
   flex-direction: column;
-  
+  min-height: 100vh;
+  padding-top: 10vh;
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 
 .details {

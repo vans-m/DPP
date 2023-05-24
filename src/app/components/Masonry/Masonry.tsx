@@ -1,11 +1,10 @@
 import Image from 'next/image'
 import styles from './Masonry.module.scss'
-import Wrapper from '../Wrapper/Wrapper'
 
 
 const Masonry = ({ images }: { images: string[] }) => {
   return (
-    <Wrapper>
+    
         <div className={styles.grid} >
         <div className={styles.halfGrid}>
           <div className={styles.gridItem}>
@@ -24,7 +23,7 @@ const Masonry = ({ images }: { images: string[] }) => {
           </div>}
         </div>
       </div>
-    </Wrapper>
+    
   )
 }
 
