@@ -10,7 +10,9 @@ const Gallery = ({ details }: { details: DetailsType[] }) => {
         return (
           <div className={styles.gridItem} key={detail.description} >
             <Image className={styles.image} src={detail.image} alt='' fill />
-            <span className={styles.description}>{detail.description}</span>
+            <div className={styles.description}>
+              <span>{detail.description}</span>
+            </div>
           </div>
         )
       })}

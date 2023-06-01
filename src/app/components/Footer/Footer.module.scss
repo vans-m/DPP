@@ -9,8 +9,7 @@
 }
 
 .content {
-  display: grid;
-  grid-template-columns: 5fr 1fr 5fr;
+  display: flex;
   align-items: center;
   text-align: center;
   z-index: 1;
@@ -20,17 +19,17 @@
   background-image: linear-gradient(rgba(255, 255, 255, .7), rgba(255, 255, 255, 1));
   max-width: 450px;
   margin: auto;
+  padding-top: .6rem;
 }
 
 .shadow {
   height: 2rem;
   background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, .7));
-  font-size: 1rem;
-  font-weight: 200;
+  
 }
 
 .image {
-  margin: auto auto 1rem;
+  margin: auto;
 }
 
 .nav {
@@ -38,4 +37,24 @@
   flex-direction: row;
   justify-content: space-evenly;
   margin: 0 0 1rem;
+  font-size: .8rem;
+  font-weight: 400;
+}
+
+.nav:first-child {
+  flex: 1;
+}
+
+.nav:last-child {
+  flex: 1;
+}
+
+.active {
+  font-weight: 600;
+}
+
+.button {
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
 }

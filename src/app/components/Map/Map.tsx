@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import styles from './Map.module.scss'
 import { JourneyItem } from '@/app/mocks/garments'
 
@@ -10,9 +9,7 @@ const Map = ({ journey }: Map) => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.map}>
-        <span>The journey:</span>
-        <span>Join Us On a Trip Down Memory Lane!</span>
-        <Image src={'/map.png'} width={600} height={600} alt='' style={{ width: '100%', height: 'auto' }} />
+        
       </div>
       <div className={styles.tiers}>
         {journey.map((place, i) => {
@@ -29,7 +26,10 @@ const Map = ({ journey }: Map) => {
           )
         })}
       </div>
-      <span className={styles.info}>*Information based on November 2022 records</span>
+      <div className={styles.info}>
+        <span>*Information based on November 2022 records</span>
+        {!journey[3] && <span>{`**Currently working on ${journey[2] ? '' : 'Tier 3 and '}Tier 4 information`}</span>}
+      </div>
     </div>
   )
 }

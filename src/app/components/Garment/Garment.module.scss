@@ -1,4 +1,9 @@
 .wrapper {
   display: flex;
   flex-direction: column;
+  background-position: left;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  z-index: auto;
 }

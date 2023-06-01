@@ -12,7 +12,7 @@ const Material = ({ material, description }: Material) => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.images}>
-        <Image src={material.logo} alt='' width={300} height={300} style={{width: 'auto', height: '40px'}} />
+        <Image src={material.logo} alt='' width={150} height={150} style={{ height: '35px', width: 'fit-content' }} />
         <Gallery details={material.details} />
       </div>
       <div className={styles.details}>
