@@ -2,7 +2,10 @@
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  padding: 0 2rem;
+  min-height: 100vh;
+  padding-top: 10vh;
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 
 .tiers {
@@ -11,10 +14,10 @@
   font-size: 1.2rem;
   font-weight: 300;
   gap: .7rem;
+  margin-top: 15vh;
 }
 
 .map {
-  padding-top: 5rem;
   display: flex;
   flex-direction: column;
   font-size: 1.4rem;
@@ -34,6 +37,7 @@
   flex-direction: column;
   justify-content: center;
   text-align: center;
+  font-size: 2.3rem;
 }
 
 .details {
@@ -48,4 +52,7 @@
 .info {
   font-size: .7rem;
   font-weight: 200;
+  display: flex;
+  flex-direction: column;
+  margin: auto auto 15vh;
 }

@@ -1,0 +1,22 @@
+.homepage {
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  z-index: 20;
+}
+
+.title {
+  width: 90%;
+  color: black;
+  margin: 45vh auto 0;
+  font-weight: 300;
+  font-size: 2.1rem;
+  text-align: left;
+}
+
+.image {
+  margin: auto auto 1.5rem;
+}

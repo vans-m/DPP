@@ -1,5 +1,4 @@
 import styles from './DigitalID.module.scss'
-import Wrapper from '../Wrapper/Wrapper'
 import Masonry from '../Masonry/Masonry'
 import Image from 'next/image'
 import { MaterialType } from '@/app/mocks/materials'
@@ -17,24 +16,22 @@ type Details = {
 
 const Details = ({ pictures, sizeSystem, size, season, releaseDate, colourName, price, material}: Details) => {
   return (
-    <Wrapper>
-      <div className={styles.wrapper}>
-        <Masonry images={pictures} />
-        <div className={styles.details}>
-          <div className={styles.listing}>
-            <span>Size System: {sizeSystem}</span>
-            <span>Size: {size}</span>
-            <span>Season: {season}</span>
-            <span>Release Date: {releaseDate}</span>
-            <span>Colour Name: {colourName}</span>
-            <span>Price: {price}</span>
-          </div>
-          <div className={styles.logo}>
-            <Image src={material.logo} alt='' width={100} height={100} style={{ width: 'auto', height: '35px' }} />
-          </div>
+    <div className={styles.wrapper}>
+      <Masonry images={pictures} />
+      <div className={styles.details}>
+        <div className={styles.listing}>
+          <span>Size System: {sizeSystem}</span>
+          <span>Size: {size}</span>
+          <span>Season: {season}</span>
+          <span>Release Date: {releaseDate}</span>
+          <span>Colour Name: {colourName}</span>
+          <span>Price: {price}</span>
+        </div>
+        <div className={styles.logo}>
+          <Image src={material.logo} alt='' width={100} height={100} style={{ width: 'auto', height: '25px' }} />
         </div>
       </div>
-    </Wrapper>
+    </div>
   )
 }
 
