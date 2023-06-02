@@ -128,7 +128,7 @@ export const garments: GarmentsType = {
 		colourName: 'Black',
 		price: '199.95 GBP',
 		pictures: ['/purse-1.png', '/purse-2.png', '/purse-3.png'],
-		composition: ['47%% Rubber', '28% Natural Waxes and Oils', '22% Plant and Mineral Fillers'],
+		composition: ['47% Rubber', '28% Natural Waxes and Oils', '22% Plant and Mineral Fillers'],
 		manufactureCountry: 'Italy',
 		manufactureDate: '2021, July 25',
 		weight: '150 g',

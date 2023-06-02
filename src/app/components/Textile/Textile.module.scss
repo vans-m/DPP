@@ -16,7 +16,17 @@
 .composition {
   display: flex;
   flex-direction: column;
+  margin-top: 15vh;
+}
+
+.button {
+  border: 0;
+  background-color: transparent;
+  text-align: left;
+  cursor: pointer;
+}
+
+.span {
   font-size: 2.75rem;
   font-weight: 300;
-  margin-top: 15vh;
 }

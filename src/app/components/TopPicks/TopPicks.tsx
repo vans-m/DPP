@@ -34,17 +34,17 @@ const TopPicks = ({id}: {id: string}) => {
             <span>Style With:</span>
             <div className={styles.picItems}>
               <Link href={`/${item1.id}/`} className={styles.imgWrapper}>
-                <Image className={styles.img} src={item1.pictures[0]} alt='' width={60} height={60} />
+                <Image className={styles.img} src={item1.pictures[0]} alt='' width={160} height={160} />
               </Link>
               <Link href={`/${item2.id}/`}  className={styles.imgWrapper}>
-                <Image className={styles.img} src={item2.pictures[0]} alt='' width={60} height={60} />
+                <Image className={styles.img} src={item2.pictures[0]} alt='' width={160} height={160} />
               </Link>
             </div>
           </div>
           <div className={styles.picSection}>
           <span>Discover:</span>
           <Link href={`/${item3.id}/`}  className={styles.imgWrapper}>
-            <Image className={styles.img} src={item3.pictures[0]} alt='' width={60} height={60} />
+            <Image className={styles.img} src={item3.pictures[0]} alt='' width={160} height={160} />
           </Link>
         </div>
       </div>

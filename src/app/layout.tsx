@@ -1,7 +1,5 @@
+import Head from 'next/head'
 import './styles/globals.scss'
-import { Work_Sans } from 'next/font/google'
-
-const sans = Work_Sans({ subsets: ['latin']  })
 
 export const metadata = {
   title: 'DPP',
@@ -15,8 +13,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <Head>
+        <link rel="stylesheet" href="https://use.typekit.net/tpv8aqd.css"></link>
+      </Head>
       <body
-        className={sans.className}
         suppressHydrationWarning={true}
       >{children}</body>
     </html>

@@ -20,6 +20,8 @@ type Garment = {
 
 const Garment = ({ garment, activeSection, setActiveSection, DigitalIDSectionRef, FullDataSectionRef, TopPicksSectionRef }: Garment) => {
 
+  const MaterialSectionRef = useRef(null)
+
   useIntersectionObserver(
     activeSection,
     setActiveSection,
@@ -56,12 +58,15 @@ const Garment = ({ garment, activeSection, setActiveSection, DigitalIDSectionRef
           size={garment.size}
           weight={garment.weight}
           material={garment.mainMaterial}
+          MaterialSectionRef={MaterialSectionRef}
         />
         <Map journey={garment.journey} />
-        <Material
-          material={garment.mainMaterial}
-          description={garment.description}
-        />
+        <div id='Material' ref={MaterialSectionRef}>
+          <Material
+            material={garment.mainMaterial}
+            description={garment.description}
+          />
+        </div>
       </div>
       <div id='TopPicks' ref={TopPicksSectionRef}>
         <TopPicks id={garment.id} />

@@ -1,5 +1,7 @@
 import { MaterialType } from '@/app/mocks/materials'
 import styles from './Textile.module.scss'
+import { handleCLick } from '@/app/hooks/useIntersectionObserver'
+import { MutableRefObject } from 'react'
 
 type Textile = {
   composition: string[]
@@ -9,14 +11,18 @@ type Textile = {
 	manufactureCountry: string
   weight: string
   material: MaterialType
+  MaterialSectionRef: MutableRefObject<null>
 }
 
-const Textile = ({ composition, sizeSystem, size, manufactureDate, manufactureCountry, weight, material}: Textile) => {
+const Textile = ({ composition, sizeSystem, size, manufactureDate, manufactureCountry, weight, material, MaterialSectionRef}: Textile) => {
   return (
     <div className={styles.background}>
       <div className={styles.wrapper}>
       <div className={styles.composition}>
-        {composition.map(material => <span key={material}>{material}</span>)}
+          {composition.map((material, i) => {
+            if (i === 0) return (<button key={material} className={styles.button} onClick={() => handleCLick(MaterialSectionRef)}><span className={styles.span}>{material}</span></button>)
+            else return (<span key={material} className={styles.span}>{material}</span>)
+          })}
       </div>
       {material.name === 'Wool' && <span className={styles.wool}>*Wool naturally sourced and gathered by the Knitwit Stable</span>}
       <div className={styles.details}>
