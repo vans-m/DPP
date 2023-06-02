@@ -11,16 +11,16 @@ type Textile = {
 	manufactureCountry: string
   weight: string
   material: MaterialType
-  MaterialSectionRef: MutableRefObject<null>
+  materialSectionRef: MutableRefObject<null>
 }
 
-const Textile = ({ composition, sizeSystem, size, manufactureDate, manufactureCountry, weight, material, MaterialSectionRef}: Textile) => {
+const Textile = ({ composition, sizeSystem, size, manufactureDate, manufactureCountry, weight, material, materialSectionRef}: Textile) => {
   return (
     <div className={styles.background}>
       <div className={styles.wrapper}>
       <div className={styles.composition}>
           {composition.map((material, i) => {
-            if (i === 0) return (<button key={material} className={styles.button} onClick={() => handleCLick(MaterialSectionRef)}><span className={styles.span}>{material}</span></button>)
+            if (i === 0) return (<button key={material} className={styles.button} onClick={() => handleCLick(materialSectionRef)}><span className={styles.span}>{material}</span></button>)
             else return (<span key={material} className={styles.span}>{material}</span>)
           })}
       </div>

@@ -58,7 +58,7 @@ const Garment = ({ garment, activeSection, setActiveSection, DigitalIDSectionRef
           size={garment.size}
           weight={garment.weight}
           material={garment.mainMaterial}
-          MaterialSectionRef={MaterialSectionRef}
+          materialSectionRef={MaterialSectionRef}
         />
         <Map journey={garment.journey} />
         <div id='Material' ref={MaterialSectionRef}>
