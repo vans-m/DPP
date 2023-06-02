@@ -20,7 +20,7 @@ const Footer = ({ activeSection, DigitalIDSectionRef, FullDataSectionRef, TopPic
             <button onClick={() => handleCLick(DigitalIDSectionRef)} id={'DigitalID'} className={activeSection === 'DigitalID' ? `${styles.button} ${styles.active}` : `${styles.button}`}>Digital ID</button>
             <button onClick={() => handleCLick(FullDataSectionRef)} id={'FullData'} className={activeSection === 'FullData' ? `${styles.button} ${styles.active}` : `${styles.button}`}>Full Data</button>
           </div>
-          <Link href={'https://instagram.com/scotch_soda?igshid=MmJiY2I4NDBkZg=='} className={styles.nav}>
+          <Link href={'https://instagram.com/scotch_soda?igshid=MmJiY2I4NDBkZg=='} target='_blank' className={styles.nav}>
             <Image className={styles.image} src={'/s&s-logo-transparent.png'} width={45} height={35} alt='' />
           </Link>
           <div className={styles.nav}>
