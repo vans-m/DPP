@@ -6,28 +6,37 @@ import TopPicks from '../TopPicks/TopPicks'
 import styles from './Garment.module.scss'
 import { GarmentType } from '@/app/mocks/garments'
 import Landing from '../Landing/Landing'
-import { MutableRefObject, useRef } from 'react'
+import { RefObject, useRef } from 'react'
 import useIntersectionObserver from '@/app/hooks/useIntersectionObserver'
 
 type Garment = {
   garment: GarmentType
   activeSection: string
   setActiveSection: (param: string) => void
-  DigitalIDSectionRef: MutableRefObject<null>
-  FullDataSectionRef: MutableRefObject<null>
-  TopPicksSectionRef: MutableRefObject<null>
+  DigitalIDSectionRef: RefObject<HTMLDivElement>
+  FullDataSectionRef: RefObject<HTMLDivElement >
+  TopPicksSectionRef: RefObject<HTMLDivElement>
 }
 
 const Garment = ({ garment, activeSection, setActiveSection, DigitalIDSectionRef, FullDataSectionRef, TopPicksSectionRef }: Garment) => {
 
   const MaterialSectionRef = useRef(null)
+  const LandingSectionRef = useRef(null)
+  const TextileSectionRef = useRef(null)
+  const MapSectionRef = useRef(null)
 
   useIntersectionObserver(
     activeSection,
     setActiveSection,
-    DigitalIDSectionRef,
-    FullDataSectionRef,
-    TopPicksSectionRef
+    .5,
+    [
+      DigitalIDSectionRef,
+      TopPicksSectionRef,
+      LandingSectionRef, 
+      TextileSectionRef, 
+      MapSectionRef, 
+      MaterialSectionRef
+    ]
   )
 
   return (
@@ -36,8 +45,10 @@ const Garment = ({ garment, activeSection, setActiveSection, DigitalIDSectionRef
         backgroundImage: `url(${garment.pictures[0]})`
       }
     }>
-      <Landing image={garment.pictures[0]} />
-      <div id='DigitalID' ref={DigitalIDSectionRef}>
+      <div id='Landing' ref={LandingSectionRef} className={styles.homepage} style={{scrollSnapAlign: 'center', scrollSnapStop: 'always'}}>
+        <Landing image={garment.pictures[0]} />
+      </div>
+      <div id='DigitalID' ref={DigitalIDSectionRef} style={{scrollSnapAlign: 'start', scrollSnapStop: 'always'}}>
         <DigitalID
           pictures={garment.pictures}
           sizeSystem={garment.sizeSystem}
@@ -47,28 +58,34 @@ const Garment = ({ garment, activeSection, setActiveSection, DigitalIDSectionRef
           colourName={garment.colourName}
           price={garment.price}
           material={garment.mainMaterial}
+          activeSection={activeSection}
         />
       </div>
       <div id='FullData' ref={FullDataSectionRef}>
-        <Textile
-          composition={garment.composition}
-          manufactureCountry={garment.manufactureCountry}
-          manufactureDate={garment.manufactureDate}
-          sizeSystem={garment.sizeSystem}
-          size={garment.size}
-          weight={garment.weight}
-          material={garment.mainMaterial}
-          materialSectionRef={MaterialSectionRef}
-        />
-        <Map journey={garment.journey} />
-        <div id='Material' ref={MaterialSectionRef}>
+        <div id='Textile' ref={TextileSectionRef} style={{scrollSnapAlign: 'center', scrollSnapStop: 'always'}}>
+          <Textile
+            composition={garment.composition}
+            manufactureCountry={garment.manufactureCountry}
+            manufactureDate={garment.manufactureDate}
+            sizeSystem={garment.sizeSystem}
+            size={garment.size}
+            weight={garment.weight}
+            material={garment.mainMaterial}
+            isVisible={activeSection === 'FullData'}
+            materialSectionRef={MaterialSectionRef}
+          />
+        </div>
+        <div id='Map' ref={MapSectionRef} style={{scrollSnapAlign: 'center', scrollSnapStop: 'always'}}>
+          <Map journey={garment.journey} />
+        </div>
+        <div id='Material' ref={MaterialSectionRef} style={{scrollSnapAlign: 'center', scrollSnapStop: 'always'}}>
           <Material
             material={garment.mainMaterial}
             description={garment.description}
           />
         </div>
       </div>
-      <div id='TopPicks' ref={TopPicksSectionRef}>
+      <div id='TopPicks' ref={TopPicksSectionRef} style={{scrollSnapAlign: 'center', scrollSnapStop: 'always'}}>
         <TopPicks id={garment.id} />
       </div>
     </div>
