@@ -4,6 +4,8 @@
   gap: 2rem;
   min-height: 100vh;
   padding: 10vh 2rem 0;
+  background-color: rgba($color: #ffffff, $alpha: 0);
+  transition: 600ms;
 }
 
 .details {
@@ -29,4 +31,8 @@
 .span {
   font-size: 2.75rem;
   font-weight: 300;
+}
+
+.active {
+  background-color: rgba($color: #ffffff, $alpha: 0.6);
 }

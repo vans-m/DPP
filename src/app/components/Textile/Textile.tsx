@@ -1,7 +1,7 @@
 import { MaterialType } from '@/app/mocks/materials'
 import styles from './Textile.module.scss'
 import { handleCLick } from '@/app/hooks/useIntersectionObserver'
-import { MutableRefObject } from 'react'
+import { RefObject } from 'react'
 
 type Textile = {
   composition: string[]
@@ -11,13 +11,14 @@ type Textile = {
 	manufactureCountry: string
   weight: string
   material: MaterialType
-  materialSectionRef: MutableRefObject<null>
+  materialSectionRef: RefObject<HTMLDivElement>
+  isVisible: boolean
 }
 
-const Textile = ({ composition, sizeSystem, size, manufactureDate, manufactureCountry, weight, material, materialSectionRef}: Textile) => {
+const Textile = ({ composition, sizeSystem, size, manufactureDate, manufactureCountry, weight, material, materialSectionRef, isVisible}: Textile) => {
   return (
     <div className={styles.background}>
-      <div className={styles.wrapper}>
+      <div className={`${styles.wrapper} ${isVisible && styles.active}`}>
       <div className={styles.composition}>
           {composition.map((material, i) => {
             if (i === 0) return (<button key={material} className={styles.button} onClick={() => handleCLick(materialSectionRef)}><span className={styles.span}>{material}</span></button>)

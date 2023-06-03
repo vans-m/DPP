@@ -1,4 +1,3 @@
-import Head from 'next/head'
 import './styles/globals.scss'
 
 export const metadata = {
@@ -13,9 +12,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <Head>
-        <link rel="stylesheet" href="https://use.typekit.net/tpv8aqd.css"></link>
-      </Head>
       <body
         suppressHydrationWarning={true}
       >{children}</body>

@@ -1,47 +1,42 @@
-import { MutableRefObject, useEffect } from "react"
+import { RefObject, useEffect } from "react"
 
 const useIntersectionObserver = (
   activeSection: string,
   setActiveSection: (param: string) => void,
-  DigitalIDSectionRef:  MutableRefObject<null>,
-  FullDataSectionRef:  MutableRefObject<null>,
-  TopPicksSectionRef:  MutableRefObject<null>
+  threshold: number,
+  references: RefObject<HTMLDivElement>[],
 ) => {
   
   useEffect(() => {
-    const DigitalIDRef = DigitalIDSectionRef
-    const FullDataRef = FullDataSectionRef
-    const TopPicksRef = TopPicksSectionRef
+    references.forEach(sectionRef => {
+      const ref = sectionRef
 
-    const handleIntersection = (entries: any[]) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          setActiveSection(entry.target.id)
-        }
-      })
-    }
+      const handleIntersection: IntersectionObserverCallback = (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id)
+          }
+        })
+      }
 
-    const observerOptions = {
-    root: null,
-    rootMargin: "0px",
-    threshold: [0.25],
-  }
-    
-    const observer = new IntersectionObserver(handleIntersection, observerOptions)
-    if (DigitalIDRef.current) observer.observe(DigitalIDRef.current)
-    if (FullDataRef.current) observer.observe(FullDataRef.current)
-    if (TopPicksRef.current) observer.observe(TopPicksRef.current)
-    return () => {
-      if (DigitalIDRef.current) observer.unobserve(DigitalIDRef.current)
-      if (FullDataRef.current) observer.unobserve(FullDataRef.current)
-      if (TopPicksRef.current) observer.unobserve(TopPicksRef.current)
+      const observerOptions = {
+      root: null,
+      rootMargin: "0px",
+      threshold: [threshold],
     }
-  }, [setActiveSection, activeSection, DigitalIDSectionRef, FullDataSectionRef, TopPicksSectionRef])
+      
+      const observer = new IntersectionObserver(handleIntersection, observerOptions)
+      if (ref.current) observer.observe(ref.current)
+      return () => {
+        if (ref.current) observer.unobserve(ref.current)
+      }
+    })
+  }, [setActiveSection, activeSection, references, threshold])
 
 }
 
-export const handleCLick = (name: any) => {
-  name.current.scrollIntoView({
+export const handleCLick = (name: RefObject<HTMLDivElement>) => {
+  name?.current?.scrollIntoView({
     behavior: 'smooth'
   })
 }
