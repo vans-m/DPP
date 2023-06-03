@@ -3,9 +3,9 @@
   flex-direction: column;
   gap: 2rem;
   min-height: 100vh;
-  padding: 10vh 2rem 0;
-  background-color: rgba($color: #ffffff, $alpha: 0);
-  transition: 600ms;
+  padding: 10vh 2rem;
+  opacity: 0;
+  transition: 800ms ease-in-out;
 }
 
 .details {
@@ -34,5 +34,14 @@
 }
 
 .active {
+  opacity: 1;
+}
+
+.bg {
+  background-color: rgba($color: #ffffff, $alpha: 0);
+  transition: 600ms ease-in-out;
+}
+
+.activeBg {
   background-color: rgba($color: #ffffff, $alpha: 0.6);
 }

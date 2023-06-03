@@ -5,7 +5,8 @@
   padding-top: 10vh;
   padding-left: 2rem;
   padding-right: 2rem;
-  background-color: white;
+  opacity: 0;
+  transition: 800ms ease-in-out;
 }
 
 .details {
@@ -23,4 +24,12 @@
 
 .logo {
   margin-left: auto;
+}
+
+.bg {
+  background-color: white;
+}
+
+.active {
+  opacity: 1;
 }

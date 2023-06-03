@@ -6,12 +6,12 @@ import { RefObject } from 'react'
 
 type Footer = {
   activeSection: string
-  DigitalIDSectionRef: RefObject<HTMLDivElement>
-  FullDataSectionRef: RefObject<HTMLDivElement>
-  TopPicksSectionRef: RefObject<HTMLDivElement>
+  digitalIDSectionRef: RefObject<HTMLDivElement>
+  fullDataSectionRef: RefObject<HTMLDivElement>
+  topPicksSectionRef: RefObject<HTMLDivElement>
 }
 
-const Footer = ({ activeSection, DigitalIDSectionRef, FullDataSectionRef, TopPicksSectionRef }: Footer) => {
+const Footer = ({ activeSection, digitalIDSectionRef, fullDataSectionRef, topPicksSectionRef }: Footer) => {
 
   const isFullDataActive =
     activeSection === 'Textile' ||
@@ -24,14 +24,14 @@ const Footer = ({ activeSection, DigitalIDSectionRef, FullDataSectionRef, TopPic
       <div className={styles.main}>
         <div className={styles.content}>
           <div className={styles.nav}>
-            <button onClick={() => handleCLick(DigitalIDSectionRef)} id={'DigitalID'} className={activeSection === 'DigitalID' ? `${styles.button} ${styles.active}` : `${styles.button}`}>Digital ID</button>
-            <button onClick={() => handleCLick(FullDataSectionRef)} id={'FullData'} className={isFullDataActive ? `${styles.button} ${styles.active}` : `${styles.button}`}>Full Data</button>
+            <button onClick={() => handleCLick(digitalIDSectionRef)} id={'DigitalID'} className={activeSection === 'DigitalID' ? `${styles.button} ${styles.active}` : `${styles.button}`}>Digital ID</button>
+            <button onClick={() => handleCLick(fullDataSectionRef)} id={'FullData'} className={isFullDataActive ? `${styles.button} ${styles.active}` : `${styles.button}`}>Full Data</button>
           </div>
           <Link href={'https://instagram.com/scotch_soda?igshid=MmJiY2I4NDBkZg=='} target='_blank' className={styles.nav}>
             <Image className={styles.image} src={'/s&s-logo-transparent.png'} width={45} height={35} alt='' />
           </Link>
           <div className={styles.nav}>
-            <button onClick={() => handleCLick(TopPicksSectionRef)} id={'TopPicks'} className={activeSection === 'TopPicks' ? `${styles.button} ${styles.active}` : `${styles.button}`}>Our Top Picks</button>
+            <button onClick={() => handleCLick(topPicksSectionRef)} id={'TopPicks'} className={activeSection === 'TopPicks' ? `${styles.button} ${styles.active}` : `${styles.button}`}>Our Top Picks</button>
           </div>
         </div>
       </div>

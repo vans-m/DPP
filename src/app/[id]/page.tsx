@@ -9,9 +9,9 @@ import { useRef, useState } from "react"
 
 const GarmentPage = ({ params }: { params: { id: string } }) => {
   const [activeSection, setActiveSection] = useState('')
-  const DigitalIDSectionRef = useRef(null)
-  const FullDataSectionRef = useRef(null)
-  const TopPicksSectionRef = useRef(null)
+  const digitalIDSectionRef = useRef(null)
+  const fullDataSectionRef = useRef(null)
+  const topPicksSectionRef = useRef(null)
 
   const id = params.id
   const garment = garments[id]
@@ -25,14 +25,14 @@ const GarmentPage = ({ params }: { params: { id: string } }) => {
       <Garment garment={garment}
         activeSection={activeSection}
         setActiveSection={setActiveSection}
-        DigitalIDSectionRef={DigitalIDSectionRef}
-        FullDataSectionRef={FullDataSectionRef}
-        TopPicksSectionRef={TopPicksSectionRef}
+        digitalIDSectionRef={digitalIDSectionRef}
+        fullDataSectionRef={fullDataSectionRef}
+        topPicksSectionRef={topPicksSectionRef}
       />
       <Footer activeSection={activeSection}
-        DigitalIDSectionRef={DigitalIDSectionRef}
-        FullDataSectionRef={FullDataSectionRef}
-        TopPicksSectionRef={TopPicksSectionRef}
+        digitalIDSectionRef={digitalIDSectionRef}
+        fullDataSectionRef={fullDataSectionRef}
+        topPicksSectionRef={topPicksSectionRef}
       />
     </div>
   )
