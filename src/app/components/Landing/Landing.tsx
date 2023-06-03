@@ -3,6 +3,7 @@ import styles from './Landing.module.scss'
 import { useState } from 'react'
 import Modal from '../Modal/Modal'
 
+
 /* eslint-disable react/no-unescaped-entities */
 
 type Landing = {

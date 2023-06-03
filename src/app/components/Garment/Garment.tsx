@@ -13,29 +13,29 @@ type Garment = {
   garment: GarmentType
   activeSection: string
   setActiveSection: (param: string) => void
-  DigitalIDSectionRef: RefObject<HTMLDivElement>
-  FullDataSectionRef: RefObject<HTMLDivElement >
-  TopPicksSectionRef: RefObject<HTMLDivElement>
+  digitalIDSectionRef: RefObject<HTMLDivElement>
+  fullDataSectionRef: RefObject<HTMLDivElement >
+  topPicksSectionRef: RefObject<HTMLDivElement>
 }
 
-const Garment = ({ garment, activeSection, setActiveSection, DigitalIDSectionRef, FullDataSectionRef, TopPicksSectionRef }: Garment) => {
+const Garment = ({ garment, activeSection, setActiveSection, digitalIDSectionRef, fullDataSectionRef, topPicksSectionRef }: Garment) => {
 
-  const MaterialSectionRef = useRef(null)
-  const LandingSectionRef = useRef(null)
-  const TextileSectionRef = useRef(null)
-  const MapSectionRef = useRef(null)
+  const materialSectionRef = useRef(null)
+  const landingSectionRef = useRef(null)
+  const textileSectionRef = useRef(null)
+  const mapSectionRef = useRef(null)
 
   useIntersectionObserver(
     activeSection,
     setActiveSection,
     .5,
     [
-      DigitalIDSectionRef,
-      TopPicksSectionRef,
-      LandingSectionRef, 
-      TextileSectionRef, 
-      MapSectionRef, 
-      MaterialSectionRef
+      digitalIDSectionRef,
+      topPicksSectionRef,
+      landingSectionRef, 
+      textileSectionRef, 
+      mapSectionRef, 
+      materialSectionRef
     ]
   )
 
@@ -45,10 +45,10 @@ const Garment = ({ garment, activeSection, setActiveSection, DigitalIDSectionRef
         backgroundImage: `url(${garment.pictures[0]})`
       }
     }>
-      <div id='Landing' ref={LandingSectionRef} className={styles.homepage} style={{scrollSnapAlign: 'center', scrollSnapStop: 'always'}}>
+      <div id='Landing' ref={landingSectionRef} className={styles.homepage} style={{scrollSnapAlign: 'center', scrollSnapStop: 'always'}}>
         <Landing image={garment.pictures[0]} />
       </div>
-      <div id='DigitalID' ref={DigitalIDSectionRef} style={{scrollSnapAlign: 'start', scrollSnapStop: 'always'}}>
+      <div id='DigitalID' ref={digitalIDSectionRef} style={{scrollSnapAlign: 'start', scrollSnapStop: 'always'}}>
         <DigitalID
           pictures={garment.pictures}
           sizeSystem={garment.sizeSystem}
@@ -59,10 +59,11 @@ const Garment = ({ garment, activeSection, setActiveSection, DigitalIDSectionRef
           price={garment.price}
           material={garment.mainMaterial}
           activeSection={activeSection}
+          isVisible={activeSection === 'DigitalID'}
         />
       </div>
-      <div id='FullData' ref={FullDataSectionRef}>
-        <div id='Textile' ref={TextileSectionRef} style={{scrollSnapAlign: 'center', scrollSnapStop: 'always'}}>
+      <div id='FullData' ref={fullDataSectionRef}>
+        <div id='Textile' ref={textileSectionRef} style={{scrollSnapAlign: 'center', scrollSnapStop: 'always'}}>
           <Textile
             composition={garment.composition}
             manufactureCountry={garment.manufactureCountry}
@@ -71,22 +72,23 @@ const Garment = ({ garment, activeSection, setActiveSection, DigitalIDSectionRef
             size={garment.size}
             weight={garment.weight}
             material={garment.mainMaterial}
-            isVisible={activeSection === 'FullData'}
-            materialSectionRef={MaterialSectionRef}
+            isVisible={activeSection === 'Textile'}
+            materialSectionRef={materialSectionRef}
           />
         </div>
-        <div id='Map' ref={MapSectionRef} style={{scrollSnapAlign: 'center', scrollSnapStop: 'always'}}>
-          <Map journey={garment.journey} />
+        <div id='Map' ref={mapSectionRef} style={{scrollSnapAlign: 'center', scrollSnapStop: 'always'}}>
+          <Map journey={garment.journey} isVisible={activeSection === 'Map'} />
         </div>
-        <div id='Material' ref={MaterialSectionRef} style={{scrollSnapAlign: 'center', scrollSnapStop: 'always'}}>
+        <div id='Material' ref={materialSectionRef} style={{scrollSnapAlign: 'center', scrollSnapStop: 'always'}}>
           <Material
             material={garment.mainMaterial}
             description={garment.description}
+            isVisible={activeSection === 'Material'}
           />
         </div>
       </div>
-      <div id='TopPicks' ref={TopPicksSectionRef} style={{scrollSnapAlign: 'center', scrollSnapStop: 'always'}}>
-        <TopPicks id={garment.id} />
+      <div id='TopPicks' ref={topPicksSectionRef} style={{scrollSnapAlign: 'center', scrollSnapStop: 'always'}}>
+        <TopPicks id={garment.id} isVisible={activeSection === 'TopPicks'} />
       </div>
     </div>
   )
