@@ -18,11 +18,19 @@ type DigitalIDProps = {
   material: MaterialType
   activeSection: string
   isVisible: boolean
+  isFirstVisit: boolean
+  setIsFirstVisit: (arg: boolean) => void
 }
 
-const DigitalID = ({ pictures, sizeSystem, size, season, releaseDate, colourName, price, material, activeSection, isVisible }: DigitalIDProps) => {
+const DigitalID = ({ pictures, sizeSystem, size, season, releaseDate, colourName, price, material, activeSection, isVisible, isFirstVisit, setIsFirstVisit }: DigitalIDProps) => {
   const [show, setShow] = useState<boolean>(false)
   const [hasRun, setHasRun] = useState<boolean>(false)
+
+  const handleClose = () => {
+    setShow(false)
+    sessionStorage.setItem('seen', 'true')
+    setIsFirstVisit(false)
+  }
  
   useEffect(() => {
         if(activeSection === 'DigitalID' && !hasRun) {
@@ -48,13 +56,18 @@ const DigitalID = ({ pictures, sizeSystem, size, season, releaseDate, colourName
             <Image src={material.logo} alt='' width={100} height={100} style={{ width: 'auto', height: '25px' }} />
           </div>
         </div>
-        <Modal setShow={setShow} show={show} >
-          <p>Feel free to scroll down the contents, or skip to whichever page you prefer.</p>
-          <p>DIGITAL ID gives information about the essential details of your product - colour name, size, release date and season.</p>
-          <p>FULL DATA goes in-depth about the material producion tiers and quantity, characteristics, environmental qualities and certifications.</p>
-          <p>OUR TOP PICKS provides options that have similar appearance and material features as your scanned product, plus styling options and a 'discover' alternative.</p>
-          <p>Reach out to us or share your experience on our Instagram page!</p>
-        </Modal> 
+        {isFirstVisit && <Modal setShow={setShow} show={show} >
+          <p className={styles.p}>Feel free to scroll down the contents, or skip to whichever page you prefer.</p>
+          <p className={styles.p}>DIGITAL ID gives information about the essential details of your product - colour name, size, release date and season.</p>
+          <p className={styles.p}>FULL DATA goes in-depth about the material producion tiers and quantity, characteristics, environmental qualities and certifications.</p>
+          <p className={styles.p}>OUR TOP PICKS provides options that have similar appearance and material features as your scanned product, plus styling options and a 'discover' alternative.</p>
+          <div className={styles.p}>
+            <p>Reach out to us or share your experience on our Instagram page!</p>
+            <button className={styles.button} onClick={handleClose}>
+              Continue
+            </button>
+          </div>
+        </Modal>}
       </div>
     </div>
   )

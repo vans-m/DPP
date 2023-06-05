@@ -18,7 +18,7 @@ const Material = ({ material, description, isVisible }: Material) => {
           <Gallery details={material.details} />
         </div>
         <div className={styles.details}>
-          {description.map(p => <p key={p}>{p}</p>)}
+          {description.map(p => <p key={p} className={styles.p}>{p}</p>)}
         </div>
       </div>
     </div>

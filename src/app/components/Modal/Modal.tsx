@@ -9,15 +9,11 @@ type Modal = {
 
 const Modal = ({ setShow, show, children }: Modal) => {
   const showHideClassName = show ? `${styles.modal} ${styles.displayBlock}` : `${styles.modal} ${styles.displayNone}`
-  const handleClose = () => setShow(false)
 
   return (
-    <div className={showHideClassName}>
+    <div className={showHideClassName} onClick={() => setShow(false)}>
       <div className={styles.modalMain}>
         {children}
-        <button className={styles.button} onClick={handleClose}>
-          Continue
-        </button>
       </div>
     </div>
   )

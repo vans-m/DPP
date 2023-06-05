@@ -6,7 +6,7 @@ import TopPicks from '../TopPicks/TopPicks'
 import styles from './Garment.module.scss'
 import { GarmentType } from '@/app/mocks/garments'
 import Landing from '../Landing/Landing'
-import { RefObject, useRef } from 'react'
+import { RefObject, useEffect, useRef, useState } from 'react'
 import useIntersectionObserver from '@/app/hooks/useIntersectionObserver'
 
 type Garment = {
@@ -19,6 +19,12 @@ type Garment = {
 }
 
 const Garment = ({ garment, activeSection, setActiveSection, digitalIDSectionRef, fullDataSectionRef, topPicksSectionRef }: Garment) => {
+
+  const [isFirstVisit, setIsFirstVisit] = useState(true)
+  let returningUser = sessionStorage.getItem('seen')
+  useEffect(() => {
+    setIsFirstVisit(!returningUser)
+  }, [returningUser])
 
   const materialSectionRef = useRef(null)
   const landingSectionRef = useRef(null)
@@ -45,9 +51,9 @@ const Garment = ({ garment, activeSection, setActiveSection, digitalIDSectionRef
         backgroundImage: `url(${garment.pictures[0]})`
       }
     }>
-      <div id='Landing' ref={landingSectionRef} className={styles.homepage} style={{scrollSnapAlign: 'center', scrollSnapStop: 'always'}}>
-        <Landing image={garment.pictures[0]} />
-      </div>
+      {isFirstVisit && <div id='Landing' ref={landingSectionRef} className={styles.homepage} style={{scrollSnapAlign: 'center', scrollSnapStop: 'always'}}>
+        <Landing image={garment.pictures[0]} isFirstVisit={isFirstVisit} />
+      </div>}
       <div id='DigitalID' ref={digitalIDSectionRef} style={{scrollSnapAlign: 'start', scrollSnapStop: 'always'}}>
         <DigitalID
           pictures={garment.pictures}
@@ -60,6 +66,7 @@ const Garment = ({ garment, activeSection, setActiveSection, digitalIDSectionRef
           material={garment.mainMaterial}
           activeSection={activeSection}
           isVisible={activeSection === 'DigitalID'}
+          isFirstVisit={isFirstVisit} setIsFirstVisit={setIsFirstVisit}
         />
       </div>
       <div id='FullData' ref={fullDataSectionRef}>
