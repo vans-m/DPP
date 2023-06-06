@@ -8,6 +8,7 @@ import { GarmentType } from '@/app/mocks/garments'
 import Landing from '../Landing/Landing'
 import { RefObject, useEffect, useRef, useState } from 'react'
 import useIntersectionObserver from '@/app/hooks/useIntersectionObserver'
+import { hasCookie } from 'cookies-next'
 
 type Garment = {
   garment: GarmentType
@@ -21,10 +22,11 @@ type Garment = {
 const Garment = ({ garment, activeSection, setActiveSection, digitalIDSectionRef, fullDataSectionRef, topPicksSectionRef }: Garment) => {
 
   const [isFirstVisit, setIsFirstVisit] = useState(true)
-  let returningUser = sessionStorage.getItem('seen')
+  let isSeen = hasCookie('seen')
+  
   useEffect(() => {
-    setIsFirstVisit(!returningUser)
-  }, [returningUser])
+    setIsFirstVisit(!isSeen)
+  }, [isSeen])
 
   const materialSectionRef = useRef(null)
   const landingSectionRef = useRef(null)

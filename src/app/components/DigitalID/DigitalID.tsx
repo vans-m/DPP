@@ -4,6 +4,7 @@ import Image from 'next/image'
 import { MaterialType } from '@/app/mocks/materials'
 import { useEffect, useState } from 'react'
 import Modal from '../Modal/Modal'
+import { setCookie } from 'cookies-next'
 
 /* eslint-disable react/no-unescaped-entities */
 
@@ -28,7 +29,7 @@ const DigitalID = ({ pictures, sizeSystem, size, season, releaseDate, colourName
 
   const handleClose = () => {
     setShow(false)
-    sessionStorage.setItem('seen', 'true')
+    setCookie('seen', true)
     setIsFirstVisit(false)
   }
  
