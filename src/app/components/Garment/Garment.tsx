@@ -21,6 +21,7 @@ type Garment = {
 
 const Garment = ({ garment, activeSection, setActiveSection, digitalIDSectionRef, fullDataSectionRef, topPicksSectionRef }: Garment) => {
 
+  const hasLanding = garment.id === '0000' || garment.id === '0001'
   const [isFirstVisit, setIsFirstVisit] = useState(true)
   let isSeen = hasCookie('seen')
   
@@ -53,7 +54,7 @@ const Garment = ({ garment, activeSection, setActiveSection, digitalIDSectionRef
         backgroundImage: `url(${garment.pictures[0]})`
       }
     }>
-      {isFirstVisit && <div id='Landing' ref={landingSectionRef} className={styles.homepage} style={{scrollSnapAlign: 'center', scrollSnapStop: 'always'}}>
+      {isFirstVisit && hasLanding && <div id='Landing' ref={landingSectionRef} className={styles.homepage} style={{scrollSnapAlign: 'center', scrollSnapStop: 'always'}}>
         <Landing image={garment.pictures[0]} isFirstVisit={isFirstVisit} />
       </div>}
       <div id='DigitalID' ref={digitalIDSectionRef} style={{scrollSnapAlign: 'start', scrollSnapStop: 'always'}}>
